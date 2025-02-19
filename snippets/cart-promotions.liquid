@@ -1,0 +1,46 @@
+{% comment %}
+  =========================================================
+  🎁 SNIPPET : PROMOTIONS DANS LE CART DRAWER
+  =========================================================
+  📌 Fonctionnalité :
+  - Affiche un message indiquant combien il reste avant d'atteindre :
+    - La livraison gratuite (seuil : 50€)
+    - Un cadeau offert (seuil : 100€)
+  - Une fois le seuil atteint, un message de confirmation est affiché.
+
+  🛠️ Technologies utilisées :
+  - Liquid (Shopify)
+  - Variables `cart.total_price` pour détecter le montant du panier.
+  - Opérations mathématiques pour calculer le montant restant.
+
+  🚀 Bonnes pratiques :
+  - Code clair et lisible avec des conditions optimisées.
+  - Gestion des seuils en un seul endroit pour faciliter la modification.
+{% endcomment %}
+
+<div id="cart-promotions" class="cart-promotions">
+  {%- comment -%} Définition des seuils en centimes (Shopify gère les prix en centimes) {%- endcomment -%}
+  {%- assign free_shipping_threshold = 50 | times: 100 -%}
+  {%- assign gift_threshold = 100 | times: 100 -%}
+
+  {%- comment -%} Message de livraison gratuite {%- endcomment -%}
+  {%- if cart.total_price < free_shipping_threshold -%}
+    <p id="free-shipping-msg">
+      🚚 Plus que {{ free_shipping_threshold | minus: cart.total_price | divided_by: 100.0 }} € pour bénéficier de la
+      livraison gratuite.
+    </p>
+  {%- else -%}
+    <p id="free-shipping-confirmation" class="confirmation-message">
+      🎉 Félicitations, la livraison vous est offerte !
+    </p>
+  {%- endif -%}
+
+  {%- comment -%} Message pour le cadeau offert {%- endcomment -%}
+  {%- if cart.total_price < gift_threshold -%}
+    <p id="gift-msg">
+      🎁 Plus que {{ gift_threshold | minus: cart.total_price | divided_by: 100.0 }} € pour recevoir un cadeau offert.
+    </p>
+  {%- else -%}
+    <p id="gift-confirmation" class="confirmation-message">🎉 Félicitations, un cadeau vous a été ajouté !</p>
+  {%- endif -%}
+</div>
