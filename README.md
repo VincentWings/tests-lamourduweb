@@ -124,7 +124,7 @@ Appliquer **automatiquement une réduction de 10 %** aux produits d'une collecti
    - Affichage du **prix original barré** et du **prix remisé**.
    - Mises à jour **dynamiques** lors de l'ajout au panier.
 
-3. **Utilisation des Métachamps Shopify** :
+3. **Utilisation des Métafields Shopify** :
    - Ajout d'un champ personnalisé `custom.titre_promotion` dans les collections.
    - Permet d'afficher **un nom de promotion personnalisé**.
 
@@ -143,9 +143,8 @@ Appliquer **automatiquement une réduction de 10 %** aux produits d'une collecti
 Ce projet m'a permis de travailler sur plusieurs aspects essentiels du **développement Shopify** :
 
 - **Personnalisation du front-end** : Ajout de promotions dynamiques et gestion des prix barrés.  
-- **Automatisation des processus métier** : Gestion du stock du produit cadeau avec **Shopify Flow**.  
-- **Gestion de version et CI/CD** : Utilisation de **Git**, **GitHub** et **Shopify CLI** pour un workflow structuré.  
-- **Optimisation du code Liquid** : Réduction du nombre de lignes inutiles et meilleures performances.  
+- **Automatisation de la gestion de stocks** : Gestion du stock du produit cadeau avec **Shopify Flow**.  
+- **Gestion de version** : Utilisation de **Git**, **GitHub** et **Shopify CLI** pour un workflow structuré.   
 
 ## 🔗 Dépôt GitHub
 
