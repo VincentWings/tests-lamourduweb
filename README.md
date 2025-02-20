@@ -2,7 +2,7 @@
 
 ## 🔗 Lien du site
 
-**URL :** [Accéder à la boutique](https://tests-lamourduweb.myshopify.com/?key=4d1e8fe5e9f45d4ba06df51e96c56d38641ca8a2333c9ba98a9eeedab65545f3&preview_theme_id=&_bt=eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaEpJaVIwWlhOMGN5MXNZVzF2ZFhKa2RYZGxZaTV0ZVhOb2IzQnBabmt1WTI5dEJqb0dSVlE9IiwiZXhwIjoiMjAyNS0wMi0yMFQxODo0MjowOC45OThaIiwicHVyIjoicGVybWFuZW50X3Bhc3N3b3JkX2J5cGFzcyJ9fQ==--708781d4bbe7f5b9181ca8cfe2b4fcc88ab97bb5)
+**URL :** [Accéder à la boutique](https://tests-lamourduweb.myshopify.com/)
 
 **Mot de passe :** `laullu`
 
