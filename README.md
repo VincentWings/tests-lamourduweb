@@ -266,6 +266,9 @@ https://youtu.be/lZQna_F9h8s
 
 ### 📝 Implémentation
 
+**Workflow**
+![Déclencheur](doc/doc/workflow.jpg)
+
 1. **Déclencheur** : Quand une commande est passée.
    
 3. **Condition** : Vérifier si la commande contient **le produit cadeau**.
