@@ -19,6 +19,10 @@ Ce projet vise à tester mes compétences en **développement Shopify** à trave
 
 Ajouter **des messages promotionnels dynamiques** et **un produit cadeau automatique** lorsque le panier atteint un certain montant.
 
+## Demo
+[![Voir la vidéo](https://img.youtube.com/vi/IOKT8MbMwj8/maxresdefault.jpg)](https://youtu.be/IOKT8MbMwj8)
+https://youtu.be/IOKT8MbMwj8
+
 ### 📝 Implémentation
 
 1. **Messages dynamiques** :
