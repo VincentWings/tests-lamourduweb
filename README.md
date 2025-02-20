@@ -1,4 +1,4 @@
-# 🔥 Personnalisation d'un thème Shopify (Dawn) - Gestion des Promotions et Réductions
+# Personnalisation d'un thème Shopify (Dawn) - Gestion des Promotions et Réductions
 
 ## 🔗 Lien du site
 
@@ -23,7 +23,13 @@ Ce projet vise à tester mes compétences en **développement Shopify** à trave
 
 ### 🎯 Objectif
 
-Ajouter **des messages promotionnels dynamiques** et **un produit cadeau automatique** lorsque le panier atteint un certain montant.
+Affiche **des messages promotionnels dynamiques** indiquant combien il reste avant d'atteindre :
+- La livraison gratuite (seuil : 50€)
+- Un cadeau offert (seuil : 100€)
+  
+Une fois le seuil atteint, un message de confirmation est affiché.
+
+Ajouter **un produit cadeau** lorsque le panier atteint 100€.
 
 ## Demo
 [![Voir la vidéo](https://img.youtube.com/vi/IOKT8MbMwj8/maxresdefault.jpg)](https://youtu.be/IOKT8MbMwj8)
@@ -36,8 +42,8 @@ https://youtu.be/IOKT8MbMwj8
    - Mise à jour **en temps réel** avec JavaScript.
 
 2. **Ajout automatique d'un produit cadeau** :
-   - Surveillance du total du panier avec **l'API AJAX Shopify**.
-   - Ajout automatique du produit **lorsque le seuil est atteint**.
+   - Surveillance du total du panier en utilisant **l'API AJAX Shopify** avec `/cart.js`, `/cart/add.js` et `/cart/change.js`.
+   - Ajout automatique du produit **lorsque le seuil de 100€ est atteint**.
    - Affichage d'un **message de confirmation** sans rechargement de la page.
 
 3. **Snippet spécifique `cart-promotions.liquid`** :
@@ -53,8 +59,9 @@ https://youtu.be/IOKT8MbMwj8
 ### Instructions de test
 
 1. **Ajouter des produits au panier** et observer les messages qui s'affichent dynamiquement.
-2. Une fois **le seuil de 100 € atteint**, vérifier que **le produit cadeau est ajouté automatiquement**.
-3. Vérifier que **les messages changent** une fois la condition remplie.
+2. Une fois **le seuil de 50 € atteint**, vérifier que **la livraison gratuite est ajouté**.
+3. Une fois **le seuil de 100 € atteint**, vérifier que **le produit cadeau est ajouté automatiquement**.
+4. Vérifier que **les messages changent** une fois la condition remplie.
 
 ## Exercice 2 : Automatisation de la gestion des stocks avec Shopify Flow
 
