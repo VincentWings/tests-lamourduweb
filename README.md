@@ -110,6 +110,10 @@ Mettre en place **une gestion de version propre** et un **workflow efficace**.
 
 Appliquer **automatiquement une réduction de 10 %** aux produits d'une collection spécifique et afficher **les prix barrés**.
 
+## Demo
+[![Voir la vidéo](https://img.youtube.com/vi/Z2MsRnF5OSU/maxresdefault.jpg)](https://youtu.be/Z2MsRnF5OSU)
+[https://youtu.be/lZQna_F9h8s](https://youtu.be/Z2MsRnF5OSU)
+
 ### 📝 Implémentation
 
 1. **Détection des produits concernés** :
