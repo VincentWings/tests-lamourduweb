@@ -1,99 +1,140 @@
-# Dawn
+# Personnalisation d'un thème Shopify (Dawn) - Gestion des Promotions et Réductions
 
-[![Build status](https://github.com/shopify/dawn/actions/workflows/ci.yml/badge.svg?branch=main)](https://github.com/Shopify/dawn/actions/workflows/ci.yml?query=branch%3Amain)
-[![PRs Welcome](https://img.shields.io/badge/PRs-welcome-brightgreen.svg?color=informational)](/.github/CONTRIBUTING.md)
+## 📌 Introduction
 
-[Getting started](#getting-started) |
-[Staying up to date with Dawn changes](#staying-up-to-date-with-dawn-changes) |
-[Developer tools](#developer-tools) |
-[Contributing](#contributing) |
-[Code of conduct](#code-of-conduct) |
-[Theme Store submission](#theme-store-submission) |
-[License](#license)
+Ce projet vise à tester mes compétences en **développement Shopify** à travers **quatre exercices pratiques**. L'objectif est d'améliorer et d'automatiser certaines fonctionnalités clés d'une boutique Shopify en utilisant des **bonnes pratiques de développement**, de **gestion de version** et d'optimisation de l'affichage des promotions et réductions.
 
-Dawn represents a HTML-first, JavaScript-only-as-needed approach to theme development. It's Shopify's first source available theme with performance, flexibility, and [Online Store 2.0 features](https://www.shopify.com/partners/blog/shopify-online-store) built-in and acts as a reference for building Shopify themes.
+## 🛠️ Technologies et outils utilisés
 
-* **Web-native in its purest form:** Themes run on the [evergreen web](https://www.w3.org/2001/tag/doc/evergreen-web/). We leverage the latest web browsers to their fullest, while maintaining support for the older ones through progressive enhancement—not polyfills.
-* **Lean, fast, and reliable:** Functionality and design defaults to “no” until it meets this requirement. Code ships on quality. Themes must be built with purpose. They shouldn’t support each and every feature in Shopify.
-* **Server-rendered:** HTML must be rendered by Shopify servers using Liquid. Business logic and platform primitives such as translations and money formatting don’t belong on the client. Async and on-demand rendering of parts of the page is OK, but we do it sparingly as a progressive enhancement.
-* **Functional, not pixel-perfect:** The Web doesn’t require each page to be rendered pixel-perfect by each browser engine. Using semantic markup, progressive enhancement, and clever design, we ensure that themes remain functional regardless of the browser.
+- **Shopify Liquid** : Personnalisation des templates du thème.
+- **JavaScript (AJAX, Fetch API)** : Gestion dynamique du panier et mises à jour en temps réel.
+- **Shopify Flow** : Automatisation de la gestion de stock.
+- **Shopify CLI** : Développement et prévisualisation du thème en local.
+- **Git & GitHub** : Gestion de version et collaboration.
+- **Métafields Shopify** : Gestion dynamique des promotions.
 
-You can find a more detailed version of our theme code principles in the [contribution guide](https://github.com/Shopify/dawn/blob/main/.github/CONTRIBUTING.md#theme-code-principles).
+## Exercice 1 : Personnalisation du cart drawer
 
-## Getting started
-We recommend using Dawn as a starting point for theme development. [Learn more on Shopify.dev](https://shopify.dev/themes/getting-started/create).
+### 🎯 Objectif
 
-> If you're building a theme for the Shopify Theme Store, then you can use Dawn as a starting point. However, the theme that you submit needs to be [substantively different from Dawn](https://shopify.dev/themes/store/requirements#uniqueness) so that it provides added value for merchants. Learn about the [ways that you can use Dawn](https://shopify.dev/themes/tools/dawn#ways-to-use-dawn).
+Ajouter **des messages promotionnels dynamiques** et **un produit cadeau automatique** lorsque le panier atteint un certain montant.
 
-Please note that the main branch may include code for features not yet released. The "stable" version of Dawn is available in the theme store.
+### 📝 Implémentation
 
-## Staying up to date with Dawn changes
+1. **Messages dynamiques** :
+   - Ajout d'une section affichant les **messages incitatifs** en fonction du montant du panier.
+   - Mise à jour **en temps réel** avec JavaScript.
 
-Say you're building a new theme off Dawn but you still want to be able to pull in the latest changes, you can add a remote `upstream` pointing to this Dawn repository.
+2. **Ajout automatique d'un produit cadeau** :
+   - Surveillance du total du panier avec **l'API AJAX Shopify**.
+   - Ajout automatique du produit **lorsque le seuil est atteint**.
+   - Affichage d'un **message de confirmation** sans rechargement de la page.
 
-1. Navigate to your local theme folder.
-2. Verify the list of remotes and validate that you have both an `origin` and `upstream`:
-```sh
-git remote -v
-```
-3. If you don't see an `upstream`, you can add one that points to Shopify's Dawn repository:
-```sh
-git remote add upstream https://github.com/Shopify/dawn.git
-```
-4. Pull in the latest Dawn changes into your repository:
-```sh
-git fetch upstream
-git pull upstream main
-```
+3. **Snippet spécifique `cart-promotions.liquid`** :
+   - Utilisé pour gérer **l'affichage des promotions** dans le cart drawer.
+   - Vérifie si la livraison gratuite ou le cadeau offert doit être affiché.
 
-## Developer tools
+### Fichiers modifiés
 
-There are a number of really useful tools that the Shopify Themes team uses during development. Dawn is already set up to work with these tools.
+- `sections/cart-drawer.liquid`
+- `snippets/cart-promotions.liquid`
+- `assets/cart.js`
 
-### Shopify CLI
+### Instructions de test
 
-[Shopify CLI](https://github.com/Shopify/shopify-cli) helps you build Shopify themes faster and is used to automate and enhance your local development workflow. It comes bundled with a suite of commands for developing Shopify themes—everything from working with themes on a Shopify store (e.g. creating, publishing, deleting themes) or launching a development server for local theme development.
+1. **Ajouter des produits au panier** et observer les messages qui s'affichent dynamiquement.
+2. Une fois **le seuil de 100 € atteint**, vérifier que **le produit cadeau est ajouté automatiquement**.
+3. Vérifier que **les messages changent** une fois la condition remplie.
 
-You can follow this [quick start guide for theme developers](https://shopify.dev/docs/themes/tools/cli) to get started.
+## Exercice 2 : Automatisation de la gestion des stocks avec Shopify Flow
 
-### Theme Check
+### 🎯 Objectif
 
-We recommend using [Theme Check](https://github.com/shopify/theme-check) as a way to validate and lint your Shopify themes.
+Automatiser **la gestion du stock** du produit cadeau en utilisant Shopify Flow.
 
-We've added Theme Check to Dawn's [list of VS Code extensions](/.vscode/extensions.json) so if you're using Visual Studio Code as your code editor of choice, you'll be prompted to install the [Theme Check VS Code](https://marketplace.visualstudio.com/items?itemName=Shopify.theme-check-vscode) extension upon opening VS Code after you've forked and cloned Dawn.
+### 📝 Implémentation
 
-You can also run it from a terminal with the following Shopify CLI command:
+1. **Déclencheur** : Quand une commande est passée.
+2. **Condition** : Vérifier si la commande contient **le produit cadeau**.
+3. **Action** : Déduire automatiquement le stock du produit cadeau.
 
-```bash
-shopify theme check
-```
+### Instructions de test
 
-### Continuous Integration
+1. **Passer une commande** contenant le produit cadeau.
+2. Vérifier dans **Shopify Admin** que **le stock a été mis à jour automatiquement**.
 
-Dawn uses [GitHub Actions](https://github.com/features/actions) to maintain the quality of the theme. [This is a starting point](https://github.com/Shopify/dawn/blob/main/.github/workflows/ci.yml) and what we suggest to use in order to ensure you're building better themes. Feel free to build off of it!
+## Exercice 3 : Gestion de version avec Shopify CLI et GitHub
 
-#### Shopify/lighthouse-ci-action
+### 🎯 Objectif
 
-We love fast websites! Which is why we created [Shopify/lighthouse-ci-action](https://github.com/Shopify/lighthouse-ci-action). This runs a series of [Google Lighthouse](https://developers.google.com/web/tools/lighthouse) audits for the home, product and collections pages on a store to ensure code that gets added doesn't degrade storefront performance over time.
+Mettre en place **une gestion de version propre** et un **workflow efficace**.
 
-#### Shopify/theme-check-action
+### 📝 Implémentation
 
-Dawn runs [Theme Check](#Theme-Check) on every commit via [Shopify/theme-check-action](https://github.com/Shopify/theme-check-action).
+1. **Utilisation de Shopify CLI** :
+   - Clonage du thème **Dawn** et configuration de l'environnement local.
+   - Utilisation de :
+     ```sh
+     shopify theme dev
+     ```
+     pour tester en local.
+   
+2. **Gestion de version avec Git** :
+   - Création de **branches dédiées** (`feature/`, `fix/`, `docs/`...).
+   - **Messages de commit clairs et détaillés**.
+   - Documentation centralisée dans `README.md`.
 
-## Contributing
+### Instructions de test
 
-Want to make commerce better for everyone by contributing to Dawn? We'd love your help! Please read our [contributing guide](https://github.com/Shopify/dawn/blob/main/.github/CONTRIBUTING.md) to learn about our development process, how to propose bug fixes and improvements, and how to build for Dawn.
+1. **Cloner le dépôt** :
+   ```sh
+   git clone https://github.com/VincentWings/tests-lamourduweb.git
+   cd shopify-theme
+   ```
+2. **Lancer l'environnement Shopify** :
+   ```sh
+   shopify theme dev
+   ```
 
-## Code of conduct
+## Exercice 4 : Application d'une réduction automatique de 10%
 
-All developers who wish to contribute through code or issues, please first read our [Code of Conduct](https://github.com/Shopify/dawn/blob/main/.github/CODE_OF_CONDUCT.md).
+### 🎯 Objectif
 
-## Theme Store submission
+Appliquer **automatiquement une réduction de 10 %** aux produits d'une collection spécifique et afficher **les prix barrés**.
 
-The [Shopify Theme Store](https://themes.shopify.com/) is the place where Shopify merchants find the themes that they'll use to showcase and support their business. As a theme partner, you can create themes for the Shopify Theme Store and reach an international audience of an ever-growing number of entrepreneurs.
+### 📝 Implémentation
 
-Ensure that you follow the list of [theme store requirements](https://shopify.dev/themes/store/requirements) if you're interested in becoming a [Shopify Theme Partner](https://themes.shopify.com/services/themes/guidelines) and building themes for the Shopify platform.
+1. **Détection des produits concernés** :
+   - Vérification si un produit appartient à la collection **`Promotions`**.
+   - Application automatique d'une réduction de **10 %**.
 
-## License
+2. **Affichage des prix barrés** :
+   - Affichage du **prix original barré** et du **prix remisé**.
+   - Mises à jour **dynamiques** lors de l'ajout au panier.
 
-Copyright (c) 2021-present Shopify Inc. See [LICENSE](/LICENSE.md) for further details.
+3. **Utilisation des Métachamps Shopify** :
+   - Ajout d'un champ personnalisé `custom.titre_promotion` dans les collections.
+   - Permet d'afficher **un nom de promotion personnalisé**.
+
+### Fichiers modifiés
+
+- `snippets/price.liquid`
+- `snippets/cart-product.liquid`
+
+### Instructions de test
+
+1. Vérifier que **les produits de la collection `Promotions`** ont bien leur **prix barré** et le bon libellé de promotion.
+2. Ajouter un produit au panier et s'assurer que **la réduction est bien appliquée**.
+
+## 📜 Conclusion
+
+Ce projet m'a permis de travailler sur plusieurs aspects essentiels du **développement Shopify** :
+
+- **Personnalisation du front-end** : Ajout de promotions dynamiques et gestion des prix barrés.  
+- **Automatisation des processus métier** : Gestion du stock du produit cadeau avec **Shopify Flow**.  
+- **Gestion de version et CI/CD** : Utilisation de **Git**, **GitHub** et **Shopify CLI** pour un workflow structuré.  
+- **Optimisation du code Liquid** : Réduction du nombre de lignes inutiles et meilleures performances.  
+
+## 🔗 Dépôt GitHub
+
+**Lien du dépôt GitHub** : [https://github.com/VincentWings/tests-lamourduweb](https://github.com/VincentWings/tests-lamourduweb.git)
