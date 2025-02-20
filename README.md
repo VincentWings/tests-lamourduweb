@@ -349,7 +349,7 @@ Appliquer **automatiquement une réduction de 10 %** aux produits d'une collecti
 1. Vérifier que **les produits de la collection `Promotions`** ont bien leur **prix barré** et le bon libellé de promotion.
 2. Ajouter un produit au panier et s'assurer que **la réduction est bien appliquée**.
 
-### Résumé des choix techniques
+## Résumé des choix techniques
 Ce projet améliore l'expérience utilisateur et automatise les promotions en utilisant les bonnes pratiques Shopify :
 
 #### Cart Drawer & Ajout du cadeau :
@@ -363,6 +363,7 @@ Ce projet améliore l'expérience utilisateur et automatise les promotions en ut
 
 #### Réduction automatique de 10% :
 - Métafields Shopify pour stocker et afficher le nom de la promotion.
+- Ajout des promotions dans le backend de Shopify pour une facilité de mise à jour côté client.
 - Affichage dynamique des prix barrés dans price.liquid et cart-product.liquid.
 
 #### Workflow & développement :
