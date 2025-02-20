@@ -97,7 +97,7 @@ Mettre en place **une gestion de version propre** et un **workflow efficace**.
 1. **Cloner le dépôt** :
    ```sh
    git clone https://github.com/VincentWings/tests-lamourduweb.git
-   cd shopify-theme
+   cd tests-lamourduweb
    ```
 2. **Lancer l'environnement Shopify** :
    ```sh
