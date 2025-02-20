@@ -23,4 +23,4 @@ jobs:
       - name: Theme Check
         uses: shopify/theme-check-action@v2
         with:
-          token: ${{ github.token }}
+          token: ${{ secrets.GH_TOKEN }}
