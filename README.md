@@ -17,7 +17,7 @@ Ce projet vise à tester mes compétences en **développement Shopify** à trave
 - **Shopify Flow** : Automatisation de la gestion de stock.
 - **Shopify CLI** : Développement et prévisualisation du thème en local.
 - **Git & GitHub** : Gestion de version et collaboration.
-- **Métafields Shopify** : Gestion dynamique des promotions.
+- **Métafields Shopify** : Personnalisation du badge de promotions.
 
 ## Exercice 1 : Personnalisation du cart drawer
 
