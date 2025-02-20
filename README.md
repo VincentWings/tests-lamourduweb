@@ -157,8 +157,4 @@ Ce projet m'a permis de travailler sur plusieurs aspects essentiels du **dévelo
 
 - **Personnalisation du front-end** : Ajout de promotions dynamiques et gestion des prix barrés.  
 - **Automatisation de la gestion de stocks** : Gestion du stock du produit cadeau avec **Shopify Flow**.  
-- **Gestion de version** : Utilisation de **Git**, **GitHub** et **Shopify CLI** pour un workflow structuré.   
-
-## 🔗 Dépôt GitHub
-
-**Lien du dépôt GitHub** : [https://github.com/VincentWings/tests-lamourduweb](https://github.com/VincentWings/tests-lamourduweb.git)
+- **Gestion de version** : Utilisation de **Git**, **GitHub** et **Shopify CLI** pour un workflow structuré.
