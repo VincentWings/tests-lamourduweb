@@ -267,8 +267,12 @@ https://youtu.be/lZQna_F9h8s
 ### 📝 Implémentation
 
 1. **Déclencheur** : Quand une commande est passée.
-2. **Condition** : Vérifier si la commande contient **le produit cadeau**.
-3. **Action** : Déduire automatiquement le stock du produit cadeau.
+   
+3. **Condition** : Vérifier si la commande contient **le produit cadeau**.
+   ![Déclencheur](doc/flow-conditions.jpg)
+5. **Action** : Déduire automatiquement le stock du produit cadeau.
+   ![Déclencheur](doc/flow-action1.jpg)
+   ![Déclencheur](doc/flow-action2.jpg)
 
 ### Instructions de test
 
