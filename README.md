@@ -56,6 +56,10 @@ https://youtu.be/IOKT8MbMwj8
 
 Automatiser **la gestion du stock** du produit cadeau en utilisant Shopify Flow.
 
+## Demo
+[![Voir la vidéo](https://img.youtube.com/vi/lZQna_F9h8s/maxresdefault.jpg)](https://youtu.be/lZQna_F9h8s)
+https://youtu.be/lZQna_F9h8s
+
 ### 📝 Implémentation
 
 1. **Déclencheur** : Quand une commande est passée.
