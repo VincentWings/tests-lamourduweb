@@ -267,7 +267,7 @@ https://youtu.be/lZQna_F9h8s
 ### 📝 Implémentation
 
 **Workflow**
-![Déclencheur](doc/doc/workflow.jpg)
+![Déclencheur](doc/workflow.jpg)
 
 1. **Déclencheur** : Quand une commande est passée.
    
