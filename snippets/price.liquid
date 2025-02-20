@@ -124,13 +124,30 @@
       </small>
     </div>
     {%- if show_badges -%}
-      <span class="badge price__badge-sale color-{{ settings.sale_badge_color_scheme }}">
-        {{ 'products.product.on_sale' | t }}
-      </span>
+      {%- assign promo_title = '' -%}
 
-      <span class="badge price__badge-sold-out color-{{ settings.sold_out_badge_color_scheme }}">
-        {{ 'products.product.sold_out' | t }}
-      </span>
+      {%- for c in product.collections -%}
+        {%- if c.metafields.custom.titre_promotion != blank -%}
+          {%- assign promo_title = c.metafields.custom.titre_promotion -%}
+          {%- break -%}
+        {%- endif -%}
+      {%- endfor -%}
+
+      {%- if promo_title != '' -%}
+        <span class="badge price__badge-sale color-{{ settings.sale_badge_color_scheme }}">
+          {{ promo_title }}
+        </span>
+      {%- elsif product.compare_at_price > product.price -%}
+        <span class="badge price__badge-sale color-{{ settings.sale_badge_color_scheme }}">
+          {{ 'products.product.on_sale' | t }}
+        </span>
+      {%- endif -%}
+
+      {%- unless product.available -%}
+        <span class="badge price__badge-sold-out color-{{ settings.sold_out_badge_color_scheme }}">
+          {{ 'products.product.sold_out' | t }}
+        </span>
+      {%- endunless -%}
     {%- endif -%}
   </div>
 {% endunless %}
